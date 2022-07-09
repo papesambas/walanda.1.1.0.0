@@ -1,0 +1,20 @@
+{% extends 'users/base.html.twig' %}
+
+{% block title %}Modification du Profil de
+	{{app.user.fullName}}
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4">
+		<div class="row display-6">
+			<div class="col mb-3">
+
+				Bonjour,
+				{{app.user.fullName}}
+
+			</div>
+			<div class="col"></div>
+		</div>
+		{{form(form)}}
+		</div>
+	{% endblock %}

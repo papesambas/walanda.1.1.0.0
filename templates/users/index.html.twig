@@ -1,0 +1,88 @@
+{% extends 'users/base.html.twig' %}
+
+{% block title %}Profil de
+	{{app.user.fullName}}
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4">
+		<div class="row display-6">
+			<div class="col mb-3">
+
+				Bonjour,
+				{{app.user.fullName}}
+
+			</div>
+			<div class="col"></div>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				Username
+			</div>
+			<div class="col">
+				{{app.user.username}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				Téléphone
+			</div>
+			<div class="col">
+				{{app.user.telephone}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				Email
+			</div>
+			<div class="col">
+				{{app.user.email}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				Etablissement
+			</div>
+			<div class="col mb-4">
+				{{app.user.etablissement}}
+			</div>
+		</div>
+
+		{% for message in app.flashes('message') %}
+			<div class="alert alert-info" role="alert">
+				{{message}}
+			</div>
+		{% endfor %}
+
+		<hr>
+		<div class="row display-6">
+			<div class="col">
+				({{app.user.publications|length}})
+																																Publication(s) de
+				{{app.user.fullName}}
+
+			</div>
+		</div>
+
+		{% for publication in app.user.publications %}
+
+			<div class="row mt-3">
+				<div class="col-1">
+					<strong>Titre</strong>
+				</div>
+				<div class="col">
+					{{publication.titre}}
+				</div>
+				<div class="col-2">
+					<strong>Publiée le :</strong>
+				</div>
+				<div class="col">
+					{{publication.createdAt ? publication.createdAt|date('d-m-Y H:i:s') : '' }}
+				</div>
+
+			</div>
+		{% endfor %}
+
+
+	</div>
+{% endblock %}
