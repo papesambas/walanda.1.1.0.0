@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -51,6 +53,10 @@ class Publications
 
     #[ORM\Column(type: 'boolean')]
     private $isFavorit;
+
+    public function __construct()
+    {
+    }
 
     public function getId(): ?int
     {

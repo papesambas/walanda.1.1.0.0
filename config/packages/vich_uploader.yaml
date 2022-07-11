@@ -1,0 +1,10 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        ecole_images:
+            uri_prefix: "%app.path.ecole_images%"
+            upload_destination: "%kernel.project_dir%/public%app.path.ecole_images%"
+        eleve_photos:
+            uri_prefix: "%app.path.eleve_photos%"
+            upload_destination: "%kernel.project_dir%/public%app.path.eleve_photos%"
